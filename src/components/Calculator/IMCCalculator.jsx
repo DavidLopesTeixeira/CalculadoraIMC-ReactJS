@@ -48,51 +48,65 @@ const IMCCalculator = () => {
                 </label>
             </div>
             <button onClick={calculateIMC}>Calcular imc</button>
-            <div className="imc-result">
-                <h3>Seu IMC é : {result}</h3>
-                <table className="imc-table">
-                    <thead>
-                        <tr>
-                            <th>Classificação</th>
-                            <th>IMC</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Magreza grave</td>
-                            <td>{result < 16 ? "X" : "-"}</td>
-                        </tr>
-                        <tr>
-                            <td>Magreza moderada</td>
-                            <td>{result >= 16 && result < 17 ? "X" : "-"}</td>
-                        </tr>
-                        <tr>
-                            <td>Magreza leve</td>
-                            <td>{result >= 17 && result < 18.6 ? "X" : "-"}</td>
-                        </tr>
-                        <tr>
-                            <td>Peso ideal</td>
-                            <td>{result >= 18.6 && result < 25 ? "X" : "-"}</td>
-                        </tr>
-                        <tr>
-                            <td>Sobrepeso</td>
-                            <td>{result >= 25 && result < 30 ? "X" : "-"}</td>
-                        </tr>
-                        <tr>
-                            <td>Obesidade Grau I</td>
-                            <td>{result >= 30 && result < 35 ? "X" : "-"}</td>
-                        </tr>
-                        <tr>
-                            <td>Obesidade Grau II ou severa</td>
-                            <td>{result >= 35 && result < 40 ? "X" : "-"}</td>
-                        </tr>
-                        <tr>
-                            <td>Obesidade Grau III ou mórbida</td>
-                            <td>{result > 40 ? "X" : "-"}</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+            {result && (
+                <div className="imc-result">
+                    <h3>Seu IMC é : {result}</h3>
+                    <table className="imc-table">
+                        <thead>
+                            <tr>
+                                <th>Classificação</th>
+                                <th>IMC</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Magreza grave</td>
+                                <td>{result < 16 ? "X" : "-"}</td>
+                            </tr>
+                            <tr>
+                                <td>Magreza moderada</td>
+                                <td>
+                                    {result >= 16 && result < 17 ? "X" : "-"}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Magreza leve</td>
+                                <td>
+                                    {result >= 17 && result < 18.6 ? "X" : "-"}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Peso ideal</td>
+                                <td>
+                                    {result >= 18.6 && result < 25 ? "X" : "-"}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Sobrepeso</td>
+                                <td>
+                                    {result >= 25 && result < 30 ? "X" : "-"}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Obesidade Grau I</td>
+                                <td>
+                                    {result >= 30 && result < 35 ? "X" : "-"}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Obesidade Grau II ou severa</td>
+                                <td>
+                                    {result >= 35 && result < 40 ? "X" : "-"}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Obesidade Grau III ou mórbida</td>
+                                <td>{result > 40 ? "X" : "-"}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            )}
         </div>
     );
 };
