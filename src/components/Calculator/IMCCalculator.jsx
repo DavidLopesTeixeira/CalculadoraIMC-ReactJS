@@ -8,12 +8,8 @@ const IMCCalculator = () => {
     // console.log(weight);
 
     const calculateIMC = () => {
-        // converter valores para float
         const weightValue = parseFloat(weight);
         const heightValue = parseFloat(height);
-
-        // caso nao receba weightValue, heightValue ou heightValue seja 0
-        // setamos o resultado para null e retornams a função
 
         if (!weightValue || !heightValue || heightValue === 0) {
             setResult(null);
@@ -23,16 +19,20 @@ const IMCCalculator = () => {
         const imc = weightValue / (heightValue * heightValue);
         // console.log(imc);
         setResult(imc.toFixed(2));
-        console.log(result);
+        // console.log(result);
+        setHeight("");
+        setWeight("");
     };
 
     return (
         <div className="imc-container">
-            <h2>Calculadora IMC</h2>
+            <h1>Calculadora IMC</h1>
             <div className="imc-input">
                 <label>
                     Peso (kg):
                     <input
+                        placeholder="Seu peso"
+                        value={weight}
                         type="number"
                         onChange={(e) => setWeight(e.target.value)}
                     />
@@ -42,12 +42,16 @@ const IMCCalculator = () => {
                 <label>
                     Altura (m):
                     <input
+                        placeholder="Sua altura"
+                        value={height}
                         type="number"
                         onChange={(e) => setHeight(e.target.value)}
                     />
                 </label>
             </div>
-            <button onClick={calculateIMC}>Calcular imc</button>
+            <button className="imc-button" onClick={calculateIMC}>
+                Calcular imc
+            </button>
             {result && (
                 <div className="imc-result">
                     <h3>Seu IMC é : {result}</h3>
@@ -112,12 +116,3 @@ const IMCCalculator = () => {
 };
 
 export default IMCCalculator;
-
-// 1) Crie um projeto utilizando ReactJS;
-// Este projeto será basicamente um formulário, contendo os campos:
-// altura
-// peso;
-// 2) A partir dessas informações calcule o IMC;
-// 3) Retorne o IMC e a classificação na tabela;
-// 4) Em um novo repositório armazene o código da tarefa;
-// 5) Envie o link do repositório através da plataforma.
